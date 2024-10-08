@@ -1,5 +1,5 @@
 // 'APPLE'로 정답 지정
-const 정답 = "APPLE";
+const 정답 = "happy";
 
 // 6번의 시도
 let attempts = 0;
@@ -9,7 +9,7 @@ let timer;
 function appStart() {
   const displayGameover = () => {
     const div = document.createElement("div");
-    div.innerText = "게임이 종료됐습니다.";
+    div.innerText = "Game over.";
     // CSS 코드
     div.style =
       "display:flex; justify-content:center; align-items:center; position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); background-color:white; width:200px; height:100px; box-shadow: 5px 5px 10px;";
