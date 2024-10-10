@@ -28,3 +28,20 @@ main {
   font-size: 30px;
   font-weight: bold;
 }
+
+.correct-animation {
+  animation: correct 1.5s ease forwards;
+}
+
+@keyframes correct {
+  0% {
+    transform: scale(1);
+    background-color: darkgreen;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

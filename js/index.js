@@ -46,6 +46,8 @@ function appStart() {
         맞은_갯수 += 1;
         // 입력한 글자와 정답이 같으면 초록색 배경
         block.style.background = "#6AAA64";
+        // 애니메이션 클래스 추가
+        block.classList.add("correct-animation");
         // 입력한 글자가 정답 중에 있으면 노란색 배경
       } else if (정답.includes(입력한_글자)) block.style.background = "#C9B458";
       // 같지도, 포함되지도 않으면 회색 배경
