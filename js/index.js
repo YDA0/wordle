@@ -13,8 +13,6 @@ function appStart() {
     // CSS 코드
     div.style =
       "display:flex; justify-content:center; align-items:center; position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); background-color:white; width:200px; height:80px; box-shadow: 5px 5px 10px; font-size: 20px";
-    // 전체화면으로 했을 때 중앙 배치 안 됨.
-    //   "display:flex; justify-content:center; align-items:center; position:absolute; top:40vh; left:38%; background-color:white; width:200px; height:100px;";
     // body 부분에 자식 추가
     document.body.appendChild(div);
   };
@@ -91,6 +89,40 @@ function appStart() {
       index += 1;
     }
   };
+
+  // 클릭된 키에 따라 입력을 처리하는 함수
+  const handleKeyClick = (key) => {
+    // 현재 입력할 칸을 선택
+    const thisBlock = document.querySelector(
+      `.board-column[data-index='${attempts}${index}']`
+    );
+    // 클릭된 키가 'BACK'일 경우
+    if (key === "BACK") {
+      // 백스페이스 처리를 위한 함수 호출
+      handleBackspace();
+    }
+    // 클릭된 키가 'ENTER'일 경우
+    else if (key === "ENTER") {
+      // 엔터키 처리를 위한 함수 호출
+      handleEnterKey();
+    }
+    // 클릭된 키가 알파벳일 경우
+    else {
+      // 선택된 칸에 클릭된 키 값을 입력
+      thisBlock.innerText = key;
+      // 다음 칸으로 이동하기 위해 index 증가
+      index += 1;
+    }
+  };
+
+  // 모든 키보드 요소에 클릭 이벤트 리스너 추가
+  document.querySelectorAll(".keyboard-column").forEach((key) => {
+    // 각 키에 클릭 이벤드 등록
+    key.addEventListener("click", () =>
+      // 클릭된 키의 data-key 속성을 전달하여 handleKeyClick 함수 호출
+      handleKeyClick(key.dataset.key)
+    );
+  });
 
   const startTimer = () => {
     const 시작_시간 = new Date();
